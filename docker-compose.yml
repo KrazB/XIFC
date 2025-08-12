@@ -1,0 +1,58 @@
+# Docker Compose for XIFC - IFC to Fragments Converter
+# Optimized for Windows users
+version: '3.8'
+
+services:
+  ifc-converter:
+    build: .
+    container_name: xifc-converter
+    volumes:
+      # Mount the data directory for IFC files and fragments
+      - ./data:/app/data
+      # Mount logs and reports directories  
+      - ./logs:/app/logs
+      - ./reports:/app/reports
+    environment:
+      - PYTHONUNBUFFERED=1
+      - CONVERTER_LOG_LEVEL=INFO
+      - CONVERTER_TIMEOUT=300
+    command: python convert_ifc_to_fragments.py
+    restart: "no"
+
+  # Optional PostgreSQL database for future database integration
+  postgres:
+    image: postgres:15-alpine
+    container_name: xifc-converter-db
+    environment:
+      POSTGRES_DB: ifc_fragments
+      POSTGRES_USER: converter
+      POSTGRES_PASSWORD: converter_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    profiles:
+      - database
+    restart: unless-stopped
+
+  # Optional pgAdmin for database management
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: xifc-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@xifc.local
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8080:80"
+    depends_on:
+      - postgres
+    profiles:
+      - database
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+
+networks:
+  default:
+    name: xifc-network

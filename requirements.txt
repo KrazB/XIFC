@@ -1,0 +1,39 @@
+# Core Python dependencies for IFC to Fragments Converter
+# All standard library modules are included by default in Python
+
+# Database connectivity (optional - for future database integration)
+psycopg2-binary==2.9.9
+
+# Development and testing dependencies
+pytest==7.4.4
+pytest-cov==4.1.0
+
+# Type checking
+mypy==1.8.0
+
+# Code formatting and linting
+black==23.12.1
+flake8==7.0.0
+
+# Documentation
+sphinx==7.2.6
+sphinx-rtd-theme==2.0.0
+
+# For potential future web interface or API
+flask==3.0.0
+requests==2.31.0
+
+# JSON schema validation (useful for configuration files)
+jsonschema==4.20.0
+
+# For better datetime handling if needed
+python-dateutil==2.8.2
+
+# For environment variable management
+python-decouple==3.8
+
+# For progress bars in command line
+tqdm==4.66.1
+
+# For file watching capabilities
+watchdog==3.0.0

@@ -1,0 +1,27 @@
+{
+  "name": "ifc-fragments-converter",
+  "version": "1.0.0",
+  "description": "IFC to Fragments converter using ThatOpen Components",
+  "type": "module",
+  "main": "convert_ifc_to_fragments.js",
+  "scripts": {
+    "install-deps": "npm install",
+    "convert": "node convert_ifc_to_fragments.js"
+  },
+  "dependencies": {
+    "@thatopen/components": "^2.4.11",
+    "@thatopen/fragments": "^3.0.7"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "ifc",
+    "fragments",
+    "bim",
+    "thatopen",
+    "conversion"
+  ],
+  "author": "XQG4 Team",
+  "license": "MIT"
+}

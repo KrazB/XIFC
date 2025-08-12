@@ -1,0 +1,120 @@
+# IFC to Fragments Converter - Git Ignore Rules
+# ================================================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# Environment Variables
+.env
+.env.local
+.env.development
+.env.production
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and Reports (generated at runtime)
+logs/
+reports/
+*.log
+*.tmp
+*.temp
+
+# Data Files (user content - should not be in repository)
+data/ifc/*.ifc
+data/ifc/*.IFC
+data/fragments/*.frag
+
+# Keep directory structure but ignore content
+!data/ifc/.gitkeep
+!data/fragments/.gitkeep
+!logs/.gitkeep
+!reports/.gitkeep
+
+# Node.js (from frag_convert package)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Docker
+.dockerignore
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Windows
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Test files
+test_*.ifc
+test_*.frag
+
+# Large files that shouldn't be in git
+*.ifc
+*.IFC
+*.frag
+*.rvt
+*.dwg

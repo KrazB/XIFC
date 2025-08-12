@@ -1,0 +1,11 @@
+# Essential dependencies for IFC to Fragments Converter
+# Most dependencies are Python standard library modules
+
+# Database connectivity (optional - for database integration like in reference script)
+psycopg2-binary==2.9.9
+
+# Progress bars for better user experience
+tqdm==4.66.1
+
+# Environment variable management for configuration
+python-decouple==3.8
