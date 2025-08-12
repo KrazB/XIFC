@@ -7,7 +7,7 @@ A clean script that converts IFC files from data/ifc/ directory to fragments
 format in data/fragments/ directory, skipping files where the equivalent 
 fragments file already exists.
 
-Uses the portable converter at D:\XIFC\frag_convert\
+Uses the portable converter at ./frag_convert/
 
 Features:
 - Organized directory structure: data/ifc/ → data/fragments/
@@ -20,7 +20,7 @@ Usage:
     python convert_ifc_to_fragments.py
 
 Dependencies:
-- Portable converter package at D:\XIFC\frag_convert\
+- Portable converter package at ./frag_convert/
 - Python standard libraries
 - Node.js (for the converter package)
 
@@ -60,8 +60,8 @@ class SimpleIfcConverter:
         self.log_dir.mkdir(parents=True, exist_ok=True)
         self.setup_logging()
         
-        # Portable converter configuration
-        self.converter_package_dir = Path("D:/XIFC/frag_convert")
+        # Portable converter configuration - use relative path for Docker compatibility
+        self.converter_package_dir = self.script_dir / "frag_convert"
         self.portable_converter = self.converter_package_dir / "ifc_fragments_converter.py"
         
         # Conversion statistics
@@ -127,7 +127,7 @@ class SimpleIfcConverter:
         # Check if portable converter package exists
         if not self.converter_package_dir.exists():
             self.logger.error(f"❌ Portable converter package not found at {self.converter_package_dir}")
-            self.logger.error("   Expected path: D:/XIFC/frag_convert/")
+            self.logger.error(f"   Expected path: {self.converter_package_dir}/")
             self.logger.error("   Please ensure the portable converter package exists.")
             return False
         
