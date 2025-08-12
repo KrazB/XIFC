@@ -40,8 +40,8 @@ COPY convert_ifc_to_fragments.py .
 # Create directories for logs, reports, and data
 RUN mkdir -p logs reports data/ifc data/fragments
 
-# Create a non-root user
-RUN useradd -m -u 1000 converter && \
+# Create a non-root user (let system assign UID to avoid conflicts)
+RUN useradd -m converter && \
     chown -R converter:converter /app
 
 USER converter
